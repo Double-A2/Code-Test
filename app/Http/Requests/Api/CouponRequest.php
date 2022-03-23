@@ -48,8 +48,6 @@ class CouponRequest extends APICodeTestCoupon
     {
         $errors = $this->transformErrors((new ValidationException($validator)));
 
-        dd($errors);
-
         throw new HttpResponseException(
             response()->json([
                 'success' => 0,
@@ -75,7 +73,7 @@ class CouponRequest extends APICodeTestCoupon
         foreach ($exception->errors() as $field => $message) {
             $errors[] = [
                 'attribute' => $field,
-                'message' => $message[0],
+                'errors' => $message[0],
             ];
         }
 
