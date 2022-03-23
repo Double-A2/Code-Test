@@ -10,7 +10,9 @@ namespace App\Providers;
 
 
 use App\Repositories\BaseRepository;
+use App\Repositories\CouponRepository;
 use App\Repositories\Interfaces\BaseRepositoryInterface;
+use App\Repositories\Interfaces\CouponInterface;
 use App\Repositories\Interfaces\TestInterface;
 use App\Repositories\TestRepository;
 use Illuminate\Support\ServiceProvider;
@@ -20,6 +22,7 @@ class RepositoryServiceProvider extends ServiceProvider
     protected $repositories = [
         TestInterface::class => TestRepository::class,
         BaseRepositoryInterface::class => BaseRepository::class,
+        CouponInterface::class => CouponRepository::class
     ];
 
     public function register()

@@ -9,4 +9,5 @@ use App\Http\Controllers\Api\CouponController;
 
 
 
-Route::post('/{admin}/coupon',[CouponController::class,'store']);
+Route::post('/{admin}/coupons',[CouponController::class,'store']);
+Route::get('{admin}/coupons/{id}',[CouponController::class,'show']);

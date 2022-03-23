@@ -4,10 +4,18 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\CouponRequest;
+use App\Repositories\Interfaces\CouponInterface;
 use Illuminate\Http\Request;
 
 class CouponController extends Controller
 {
+    private $counpon;
+
+    public function __construct(CouponInterface $counponInterface)
+    {
+        $this->counpon = $counponInterface;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +44,22 @@ class CouponController extends Controller
      */
     public function store(CouponRequest $request,$admin)
     {
-        dd($request->all());
+       $coupon = $this->counpon->create(array_merge($request->all(), ['admin_id' => $admin]));
+
+       return response()->json([
+           'success' => 1,
+           'code' => 201,
+           'meta' => [
+               'method' => 'POST',
+               'end_point' => request()->path()
+           ],
+           'data' => [
+               'id' => $coupon->id
+           ],
+           'errors' => []
+
+       ]);
+
     }
 
     /**
@@ -45,9 +68,42 @@ class CouponController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($admin,$id)
     {
-        //
+        $coupon = $this->counpon->where('admin_id',$admin,'=')->where('id',$id,'=')->first();
+
+        if($coupon) {
+            $response =  [
+                "success" => 1,
+                "code" => 200,
+                "meta" => [
+                    "method" => "GET",
+                    "endpoint" => request()->path()
+                ],
+                "data" => $coupon,
+                "errors" => [
+                ]
+            ];
+        }else{
+            $response = [
+                "success" => 0,
+                "code" => 404,
+                "meta" => [
+                    "method" => "GET",
+                    "endpoint" => request()->path()
+                ],
+                "data" => [
+                ],
+                "errors" => [
+                    "message" => "The resource that matches the request ID does not found.",
+                    "code" => mt_rand(11111,99999)
+                ],
+            ];
+        }
+
+
+        return response()->json($response);
+
     }
 
     /**

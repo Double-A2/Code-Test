@@ -1,20 +1,16 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 11/12/21
- * Time: 9:58 AM
- */
 
 namespace App\Repositories;
 
-
 use App\Repositories\Interfaces\BaseRepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Collection;
 
+/**
+ * Class BaseRepository.
+ */
 abstract class BaseRepository implements BaseRepositoryInterface
 {
-
     /**
      * The repository model.
      *
@@ -215,7 +211,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
     {
         $this->newQuery()->eagerLoad()->setClauses()->setScopes();
 
-        $model = $this->query->firstOrFail($columns);
+        $model = $this->query->first($columns);
 
         $this->unsetClauses();
 
@@ -254,7 +250,7 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
         $this->newQuery()->eagerLoad();
 
-        return $this->query->findOrFail($id, $columns);
+        return $this->query->find($id, $columns);
     }
 
     /**
@@ -486,5 +482,4 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
         return $this;
     }
-
 }

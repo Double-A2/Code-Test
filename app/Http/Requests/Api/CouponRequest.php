@@ -31,7 +31,13 @@ class CouponRequest extends APICodeTestCoupon
     {
         return [
             'name' => 'required|max:128',
-            'amount' => 'required'
+            'amount' => 'required|integer',
+            'discount_type' => 'required|regex:/^[a-zA-Z]+$/u',
+            'code' => 'integer',
+            'start_datetime' => 'date_format:Y-m-d H:i:s',
+            'end_datetime' => 'date_format:Y-m-d H:i:s',
+            'coupon_type' => 'in:public,private',
+            'used_count' => 'integer'
         ];
     }
 
@@ -40,6 +46,9 @@ class CouponRequest extends APICodeTestCoupon
         return [
             'name.required' => 'The name field is required.',
             'name.max' => 'The name may not be greater than 128 characters.',
+            'discount_type.regex' => 'The selected discount type is invalid.',
+            'start_datetime.date_format' => 'The start datetime must be datetime format',
+            'end_datetime.date_format' => 'The end datetime must be must be datetime format'
         ];
     }
 
