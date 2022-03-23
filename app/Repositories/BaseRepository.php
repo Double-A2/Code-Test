@@ -185,7 +185,13 @@ abstract class BaseRepository implements BaseRepositoryInterface
     {
         $this->unsetClauses();
 
-        return $this->getById($id)->delete();
+        if($this->getById($id)){
+            return $this->getById($id)->delete();
+        }else{
+           return false;
+        }
+
+
     }
 
     /**
@@ -302,8 +308,11 @@ abstract class BaseRepository implements BaseRepositoryInterface
         $this->unsetClauses();
 
         $model = $this->getById($id);
-
-        $model->update($data, $options);
+        if($model) {
+            $model->update($data, $options);
+        }else{
+            return false;
+        }
 
         return $model;
     }

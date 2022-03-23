@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Api;
+namespace App\Http\Requests\Api\Coupon;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\Validation\Validator;
@@ -9,7 +9,7 @@ use Illuminate\Validation\ValidationException;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Foundation\Http\FormRequest as APICodeTestCoupon;
 
-class CouponRequest extends APICodeTestCoupon
+class CouponListRequest extends APICodeTestCoupon
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -21,7 +21,6 @@ class CouponRequest extends APICodeTestCoupon
         return true;
     }
 
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -30,14 +29,9 @@ class CouponRequest extends APICodeTestCoupon
     public function rules()
     {
         return [
-            'name' => 'required|max:128',
-            'amount' => 'required|integer',
-            'discount_type' => 'required|regex:/^[a-zA-Z]+$/u',
-            'code' => 'integer',
-            'start_datetime' => 'date_format:Y-m-d H:i:s',
-            'end_datetime' => 'date_format:Y-m-d H:i:s',
-            'coupon_type' => 'in:public,private',
-            'used_count' => 'integer'
+            'name' => 'required',
+            'offset' => 'integer',
+            'limit' => 'integer'
         ];
     }
 
@@ -45,10 +39,6 @@ class CouponRequest extends APICodeTestCoupon
     {
         return [
             'name.required' => 'The name field is required.',
-            'name.max' => 'The name may not be greater than 128 characters.',
-            'discount_type.regex' => 'The selected discount type is invalid.',
-            'start_datetime.date_format' => 'The start datetime must be datetime format',
-            'end_datetime.date_format' => 'The end datetime must be must be datetime format'
         ];
     }
 
@@ -62,13 +52,13 @@ class CouponRequest extends APICodeTestCoupon
                 'success' => 0,
                 'code' => 400,
                 'meta' => [
-                    'method' => 'POST',
+                    'method' => 'GET',
                     'end_point' => Request::path(),
                 ],
 
                 'errors' => [
                     'message' => 'The request parameters are incorrect, please make sure to follow the documentation about request parameters of the resource.',
-                    'code' => mt_rand(11111,99999),
+                    'code' => mt_rand(11111, 99999),
                     'validation' => $errors
                 ]
             ], JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
@@ -88,6 +78,4 @@ class CouponRequest extends APICodeTestCoupon
 
         return $errors;
     }
-
-
 }
