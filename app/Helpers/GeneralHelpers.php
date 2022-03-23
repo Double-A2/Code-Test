@@ -6,20 +6,29 @@
  * Time: 11:38 AM
  */
 
-function include_route_files($folder)
-{
-    try {
-        $rdi = new recursiveDirectoryIterator($folder);
-        $it = new recursiveIteratorIterator($rdi);
+if (!function_exists('includeRouteFiles')) {
 
-        while ($it->valid()) {
-            if (!$it->isDot() && $it->isFile() && $it->isReadable() && $it->current()->getExtension() === 'php') {
-                require $it->key();
+    /**
+     * Loops through a folder and requires all PHP files
+     * Searches sub-directories as well.
+     *
+     * @param $folder
+     */
+    function includeRouteFiles($folder)
+    {
+        try {
+            $rdi = new recursiveDirectoryIterator($folder);
+            $it = new recursiveIteratorIterator($rdi);
+
+            while ($it->valid()) {
+                if (!$it->isDot() && $it->isFile() && $it->isReadable() && $it->current()->getExtension() === 'php') {
+                    require $it->key();
+                }
+
+                $it->next();
             }
-
-            $it->next();
+        } catch (Exception $e) {
+            echo $e->getMessage();
         }
-    } catch (Exception $e) {
-        echo $e->getMessage();
     }
 }

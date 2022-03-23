@@ -22,11 +22,6 @@ Route::get('/', function () {
 Route::get('test',[TestController::class,'index']);
 
 
-Route::group(['namespace' => 'Frontend', 'as' => 'frontend.'], function () {
-    include_route_files(__DIR__ . '/frontend/');
-});
-
-
-Route::group(['namespace' => 'Backend', 'as' => 'backend.'], function () {
-    include_route_files(__DIR__ . '/backend/');
+Route::group([ 'as' => 'api.'], function () {
+    includeRouteFiles(__DIR__ . '/api/');
 });

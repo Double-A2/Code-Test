@@ -1,132 +1,1078 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>Coupon API</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"><style>@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Inconsolata|Raleway:200');.hljs-comment,.hljs-title{color:#8e908c}.hljs-variable,.hljs-attribute,.hljs-tag,.hljs-regexp,.ruby .hljs-constant,.xml .hljs-tag .hljs-title,.xml .hljs-pi,.xml .hljs-doctype,.html .hljs-doctype,.css .hljs-id,.css .hljs-class,.css .hljs-pseudo{color:#c82829}.hljs-number,.hljs-preprocessor,.hljs-pragma,.hljs-built_in,.hljs-literal,.hljs-params,.hljs-constant{color:#f5871f}.ruby .hljs-class .hljs-title,.css .hljs-rules .hljs-attribute{color:#eab700}.hljs-string,.hljs-value,.hljs-inheritance,.hljs-header,.ruby .hljs-symbol,.xml .hljs-cdata{color:#718c00}.css .hljs-hexcolor{color:#3e999f}.hljs-function,.python .hljs-decorator,.python .hljs-title,.ruby .hljs-function .hljs-title,.ruby .hljs-title .hljs-keyword,.perl .hljs-sub,.javascript .hljs-title,.coffeescript .hljs-title{color:#4271ae}.hljs-keyword,.javascript .hljs-function{color:#8959a8}.hljs{display:block;background:white;color:#4d4d4c;padding:.5em}.coffeescript .javascript,.javascript .xml,.tex .hljs-formula,.xml .javascript,.xml .vbscript,.xml .css,.xml .hljs-cdata{opacity:.5}.right .hljs-comment{color:#969896}.right .css .hljs-class,.right .css .hljs-id,.right .css .hljs-pseudo,.right .hljs-attribute,.right .hljs-regexp,.right .hljs-tag,.right .hljs-variable,.right .html .hljs-doctype,.right .ruby .hljs-constant,.right .xml .hljs-doctype,.right .xml .hljs-pi,.right .xml .hljs-tag .hljs-title{color:#c66}.right .hljs-built_in,.right .hljs-constant,.right .hljs-literal,.right .hljs-number,.right .hljs-params,.right .hljs-pragma,.right .hljs-preprocessor{color:#de935f}.right .css .hljs-rule .hljs-attribute,.right .ruby .hljs-class .hljs-title{color:#f0c674}.right .hljs-header,.right .hljs-inheritance,.right .hljs-name,.right .hljs-string,.right .hljs-value,.right .ruby .hljs-symbol,.right .xml .hljs-cdata{color:#b5bd68}.right .css .hljs-hexcolor,.right .hljs-title{color:#8abeb7}.right .coffeescript .hljs-title,.right .hljs-function,.right .javascript .hljs-title,.right .perl .hljs-sub,.right .python .hljs-decorator,.right .python .hljs-title,.right .ruby .hljs-function .hljs-title,.right .ruby .hljs-title .hljs-keyword{color:#81a2be}.right .hljs-keyword,.right .javascript .hljs-function{color:#b294bb}.right .hljs{display:block;overflow-x:auto;background:#1d1f21;color:#c5c8c6;padding:.5em;-webkit-text-size-adjust:none}.right .coffeescript .javascript,.right .javascript .xml,.right .tex .hljs-formula,.right .xml .css,.right .xml .hljs-cdata,.right .xml .javascript,.right .xml .vbscript{opacity:.5}body{color:black;background:white;font:400 14px / 1.42 'Roboto',Helvetica,sans-serif}header{border-bottom:1px solid #ededed;margin-bottom:12px}h1,h2,h3,h4,h5{color:black;margin:12px 0}h1 .permalink,h2 .permalink,h3 .permalink,h4 .permalink,h5 .permalink{margin-left:0;opacity:0;transition:opacity .25s ease}h1:hover .permalink,h2:hover .permalink,h3:hover .permalink,h4:hover .permalink,h5:hover .permalink{opacity:1}.triple h1 .permalink,.triple h2 .permalink,.triple h3 .permalink,.triple h4 .permalink,.triple h5 .permalink{opacity:.15}.triple h1:hover .permalink,.triple h2:hover .permalink,.triple h3:hover .permalink,.triple h4:hover .permalink,.triple h5:hover .permalink{opacity:.15}h1{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:36px}h2{font:200 36px 'Raleway',Helvetica,sans-serif;font-size:30px}h3{font-size:100%;text-transform:uppercase}h5{font-size:100%;font-weight:normal}p{margin:0 0 10px}p.choices{line-height:1.6}a{color:#18bc9c;text-decoration:none}li p{margin:0}hr.split{border:0;height:1px;width:100%;padding-left:6px;margin:12px auto;background-image:linear-gradient(to right, rgba(0,0,0,0) 20%, rgba(0,0,0,0.2) 51.4%, rgba(255,255,255,0.2) 51.4%, rgba(255,255,255,0) 80%)}dl dt{float:left;width:280px;clear:left;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:700}dl dd{margin-left:300px}blockquote{color:rgba(0,0,0,0.5);font-size:15.5px;padding:10px 20px;margin:12px 0;border-left:5px solid #e8e8e8}blockquote p:last-child{margin-bottom:0}pre{background-color:#f5f5f5;padding:12px;border:1px solid #cfcfcf;border-radius:6px;overflow:auto}pre code{color:black;background-color:transparent;padding:0;border:none}code{color:#444;background-color:#f5f5f5;font:'Inconsolata',monospace;padding:1px 4px;border:1px solid #cfcfcf;border-radius:3px}ul,ol{padding-left:2em}table{border-collapse:collapse;border-spacing:0;margin-bottom:12px}table tr:nth-child(2n){background-color:#fafafa}table th,table td{padding:6px 12px;border:1px solid #e6e6e6}.text-muted{opacity:.5}.note,.warning{padding:.3em 1em;margin:1em 0;border-radius:2px;font-size:90%}.note h1,.warning h1,.note h2,.warning h2,.note h3,.warning h3,.note h4,.warning h4,.note h5,.warning h5,.note h6,.warning h6{font-family:200 36px 'Raleway',Helvetica,sans-serif;font-size:135%;font-weight:500}.note p,.warning p{margin:.5em 0}.note{color:black;background-color:#eff7fc;border-left:4px solid #3498db}.note h1,.note h2,.note h3,.note h4,.note h5,.note h6{color:#3498db}.warning{color:black;background-color:#fcf0ef;border-left:4px solid #d62c1a}.warning h1,.warning h2,.warning h3,.warning h4,.warning h5,.warning h6{color:#d62c1a}header{margin-top:24px}nav{position:fixed;top:24px;bottom:0;overflow-y:auto}nav .resource-group{padding:0}nav .resource-group .heading{position:relative}nav .resource-group .heading .chevron{position:absolute;top:12px;right:12px;opacity:.5}nav .resource-group .heading a{display:block;color:black;opacity:.7;border-left:2px solid transparent;margin:0}nav .resource-group .heading a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul{list-style-type:none;padding-left:0}nav ul a{display:block;font-size:13px;color:rgba(0,0,0,0.7);padding:8px 12px;border-top:1px solid #ededed;border-left:2px solid transparent;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}nav ul a:hover{text-decoration:none;background-color:bad-color;border-left:2px solid black}nav ul>li{margin:0}nav ul>li:first-child{margin-top:-12px}nav ul>li:last-child{margin-bottom:-12px}nav ul ul a{padding-left:24px}nav ul ul li{margin:0}nav ul ul li:first-child{margin-top:0}nav ul ul li:last-child{margin-bottom:0}nav>div>div>ul>li:first-child>a{border-top:none}.preload *{transition:none !important}.pull-left{float:left}.pull-right{float:right}.badge{display:inline-block;float:right;min-width:10px;min-height:14px;padding:3px 7px;font-size:12px;color:#000;background-color:#ededed;border-radius:10px;margin:-2px 0}.badge.get{color:white;background-color:#3498db}.badge.head{color:white;background-color:#3498db}.badge.options{color:white;background-color:#3498db}.badge.put{color:white;background-color:#f39c12}.badge.patch{color:white;background-color:#f39c12}.badge.post{color:white;background-color:#18bc9c}.badge.delete{color:white;background-color:#e74c3c}.collapse-button{float:right}.collapse-button .close{display:none;color:#18bc9c;cursor:pointer}.collapse-button .open{color:#18bc9c;cursor:pointer}.collapse-button.show .close{display:inline}.collapse-button.show .open{display:none}.collapse-content{max-height:0;overflow:hidden;transition:max-height .3s ease-in-out}nav{width:220px}.container{max-width:940px;margin-left:auto;margin-right:auto}.container .row .content{margin-left:244px;width:696px}.container .row:after{content:'';display:block;clear:both}.container-fluid nav{width:22%}.container-fluid .row .content{margin-left:24%}.container-fluid.triple nav{width:16.5%;padding-right:1px}.container-fluid.triple .row .content{position:relative;margin-left:16.5%;padding-left:24px}.middle:before,.middle:after{content:'';display:table}.middle:after{clear:both}.middle{box-sizing:border-box;width:51.5%;padding-right:12px}.right{box-sizing:border-box;float:right;width:48.5%;padding-left:12px}.right a{color:#18bc9c}.right h1,.right h2,.right h3,.right h4,.right h5,.right p,.right div{color:white}.right pre{background-color:#1d1f21;border:1px solid #1d1f21}.right pre code{color:#c5c8c6}.right .description{margin-top:12px}.triple .resource-heading{font-size:125%}.definition{margin-top:12px;margin-bottom:12px}.definition .method{font-weight:bold}.definition .method.get{color:#2e80b8}.definition .method.head{color:#2e80b8}.definition .method.options{color:#2e80b8}.definition .method.post{color:#2eb89d}.definition .method.put{color:#b8822e}.definition .method.patch{color:#b8822e}.definition .method.delete{color:#b83b2e}.definition .uri{word-break:break-all;word-wrap:break-word}.definition .hostname{opacity:.5}.example-names{background-color:#eee;padding:12px;border-radius:6px}.example-names .tab-button{cursor:pointer;color:black;border:1px solid #ddd;padding:6px;margin-left:12px}.example-names .tab-button.active{background-color:#d5d5d5}.right .example-names{background-color:#444}.right .example-names .tab-button{color:white;border:1px solid #666;border-radius:6px}.right .example-names .tab-button.active{background-color:#5e5e5e}#nav-background{position:fixed;left:0;top:0;bottom:0;width:16.5%;padding-right:14.4px;background-color:#fbfbfb;border-right:1px solid #f0f0f0;z-index:-1}#right-panel-background{position:absolute;right:-12px;top:-12px;bottom:-12px;width:48.6%;background-color:#333;z-index:-1}@media (max-width:1200px){nav{width:198px}.container{max-width:840px}.container .row .content{margin-left:224px;width:606px}}@media (max-width:992px){nav{width:169.4px}.container{max-width:720px}.container .row .content{margin-left:194px;width:526px}}@media (max-width:768px){nav{display:none}.container{width:95%;max-width:none}.container .row .content,.container-fluid .row .content,.container-fluid.triple .row .content{margin-left:auto;margin-right:auto;width:95%}#nav-background{display:none}#right-panel-background{width:48.6%}}.back-to-top{position:fixed;z-index:1;bottom:0;right:24px;padding:4px 8px;color:rgba(0,0,0,0.5);background-color:#ededed;text-decoration:none !important;border-top:1px solid #ededed;border-left:1px solid #ededed;border-right:1px solid #ededed;border-top-left-radius:3px;border-top-right-radius:3px}.resource-group{padding:12px;margin-bottom:12px;background-color:white;border:1px solid #ededed;border-radius:6px}.resource-group h2.group-heading,.resource-group .heading a{padding:12px;margin:-12px -12px 12px -12px;background-color:#ededed;border-bottom:1px solid #ededed;border-top-left-radius:6px;border-top-right-radius:6px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.triple .content .resource-group{padding:0;border:none}.triple .content .resource-group h2.group-heading,.triple .content .resource-group .heading a{margin:0 0 12px 0;border:1px solid #ededed}nav .resource-group .heading a{padding:12px;margin-bottom:0}nav .resource-group .collapse-content{padding:0}.action{margin-bottom:12px;padding:12px 12px 0 12px;overflow:hidden;border:1px solid transparent;border-radius:6px}.action h4.action-heading{padding:6px 12px;margin:-12px -12px 12px -12px;border-bottom:1px solid transparent;border-top-left-radius:6px;border-top-right-radius:6px;overflow:hidden}.action h4.action-heading .name{float:right;font-weight:normal;padding:6px 0}.action h4.action-heading .method{padding:6px 12px;margin-right:12px;border-radius:3px;display:inline-block}.action h4.action-heading .method.get{color:#000;background-color:white}.action h4.action-heading .method.head{color:#000;background-color:white}.action h4.action-heading .method.options{color:#000;background-color:white}.action h4.action-heading .method.put{color:#000;background-color:white}.action h4.action-heading .method.patch{color:#000;background-color:white}.action h4.action-heading .method.post{color:#000;background-color:white}.action h4.action-heading .method.delete{color:#000;background-color:white}.action h4.action-heading code{color:#444;background-color:rgba(255,255,255,0.7);border-color:transparent;font-weight:normal;word-break:break-all;display:inline-block;margin-top:2px}.action dl.inner{padding-bottom:2px}.action .title{border-bottom:1px solid white;margin:0 -12px -1px -12px;padding:12px}.action.get{border-color:#3498db}.action.get h4.action-heading{color:white;background:#3498db;border-bottom-color:#3498db}.action.head{border-color:#3498db}.action.head h4.action-heading{color:white;background:#3498db;border-bottom-color:#3498db}.action.options{border-color:#3498db}.action.options h4.action-heading{color:white;background:#3498db;border-bottom-color:#3498db}.action.post{border-color:#18bc9c}.action.post h4.action-heading{color:white;background:#18bc9c;border-bottom-color:#18bc9c}.action.put{border-color:#f39c12}.action.put h4.action-heading{color:white;background:#f39c12;border-bottom-color:#f39c12}.action.patch{border-color:#f39c12}.action.patch h4.action-heading{color:white;background:#f39c12;border-bottom-color:#f39c12}.action.delete{border-color:#e74c3c}.action.delete h4.action-heading{color:white;background:#e74c3c;border-bottom-color:#e74c3c}</style></head><body class="preload"><a href="#top" class="text-muted back-to-top"><i class="fa fa-toggle-up"></i>&nbsp;Back to top</a><div class="container"><div class="row"><nav><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#top">Overview</a></div><div class="collapse-content"><ul><li><a href="#header-http-methods">HTTP methods</a></li><li><a href="#header-domain">Domain</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#coupon">Coupon</a></div><div class="collapse-content"><ul><li><a href="#coupon-retrieve-the-list-of-coupon-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve the list of coupon</a></li><li><a href="#coupon-retrieve-a-coupon-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve a coupon</a></li><li><a href="#coupon-create-a-coupon-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create a coupon</a></li><li><a href="#coupon-update-coupon-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Update coupon</a></li><li><a href="#coupon-delete-a-coupon-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Delete a Coupon</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#shops">Shops</a></div><div class="collapse-content"><ul><li><a href="#shops-retrieve-shops-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve Shops</a></li><li><a href="#shops-retrieve-a-shop-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve a Shop</a></li><li><a href="#shops-create-a-shop-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create a Shop</a></li><li><a href="#shops-update-shop-put"><span class="badge put"><i class="fa fa-pencil"></i></span>Update Shop</a></li><li><a href="#shops-delete-a-shop-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Delete a Shop</a></li></ul></div></div><div class="resource-group"><div class="heading"><div class="chevron"><i class="open fa fa-angle-down"></i></div><a href="#couponshops">CouponShops</a></div><div class="collapse-content"><ul><li><a href="#couponshops-retrieve-couponshops-get"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve CouponShops</a></li><li><a href="#couponshops-retrieve-couponshops-get-1"><span class="badge get"><i class="fa fa-arrow-down"></i></span>Retrieve CouponShops</a></li><li><a href="#couponshops-create-a-couponshop-post"><span class="badge post"><i class="fa fa-plus"></i></span>Create a CouponShop</a></li><li><a href="#couponshops-delete-a-couponshop-delete"><span class="badge delete"><i class="fa fa-times"></i></span>Delete a CouponShop</a></li></ul></div></div></nav><div class="content"><header><h1 id="top">Coupon API</h1></header><p>Coupon API used to manage coupons.</p>
+            <h2 id="header-http-methods">HTTP methods <a class="permalink" href="#header-http-methods" aria-hidden="true">¶</a></h2>
+            <p>Coupon API is a REST API using the following HTTP methods:</p>
+            <ul>
+                <li>
+                    <p>GET: To retrieve a list of items or a item. By providing an ID as the last segment of the url, only the item corresponding to that ID is returned.</p>
+                </li>
+                <li>
+                    <p>POST: To create an item.</p>
+                </li>
+                <li>
+                    <p>PUT: To update an item. The item’s ID is required as the last segment of the url.</p>
+                </li>
+                <li>
+                    <p>DELETE: To delete items. By providing an ID as the last segment of the url, only the item corresponding to that ID is deleted.</p>
+                </li>
+            </ul>
+            <h2 id="header-domain">Domain <a class="permalink" href="#header-domain" aria-hidden="true">¶</a></h2>
+            <p><strong>Dev</strong></p>
+            <pre><code><span class="hljs-string">https:</span><span class="hljs-comment">//dev-api-coupon.com/1</span></code></pre>
+            <section id="coupon" class="resource-group"><h2 class="group-heading">Coupon <a href="#coupon" class="permalink">&para;</a></h2><p>The endpoint controls coupon feature</p>
+                <div id="coupon-retrieve-the-list-of-coupon" class="resource"><h3 class="resource-heading">Retrieve the list of coupon <a href="#coupon-retrieve-the-list-of-coupon" class="permalink">&nbsp;&para;</a></h3><p>Retrieve the list of coupons.</p>
+                    <div id="coupon-retrieve-the-list-of-coupon-get" class="action get"><h4 class="action-heading"><div class="name"></div><a href="#coupon-retrieve-the-list-of-coupon-get" class="method get">GET</a><code class="uri">/coupons</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/coupons</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>name</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>Test Coupon</span></span><p>Filter by Coupon Name.</p>
+                                </dd><dt>limit</dt><dd><code>int</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>30</span></span><p>The default limit value is <code>30</code>.</p>
+                                </dd><dt>offset</dt><dd><code>int</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>0</span></span><p>The default offset value is <code>0</code>.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"GET"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons"</span></span>,
+    "<span class="hljs-attribute">limit</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+    "<span class="hljs-attribute">offset</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">2</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">290</span></span>,
+      "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Test Coupon 02"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is test coupon."</span></span>,
+      "<span class="hljs-attribute">discount_type</span>": <span class="hljs-value"><span class="hljs-string">"percentage"</span></span>,
+      "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+      "<span class="hljs-attribute">image_url</span>": <span class="hljs-value"><span class="hljs-string">"https://s3-ap-northeast-1.amazonaws.com/coupon.stage.image/photos/290/001.jpg"</span></span>,
+      "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">23334</span></span>,
+      "<span class="hljs-attribute">start_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-10 08:00:00"</span></span>,
+      "<span class="hljs-attribute">end_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-30 23:59:59"</span></span>,
+      "<span class="hljs-attribute">coupon_type</span>": <span class="hljs-value"><span class="hljs-string">"public"</span></span>,
+      "<span class="hljs-attribute">used_count</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">289</span></span>,
+      "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Test Coupon 01"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is test coupon."</span></span>,
+      "<span class="hljs-attribute">discount_type</span>": <span class="hljs-value"><span class="hljs-string">"percentage"</span></span>,
+      "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+      "<span class="hljs-attribute">image_url</span>": <span class="hljs-value"><span class="hljs-string">"https://s3-ap-northeast-1.amazonaws.com/coupon.stage.image/photos/290/001.jpg"</span></span>,
+      "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">23334</span></span>,
+      "<span class="hljs-attribute">start_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-10 08:00:00"</span></span>,
+      "<span class="hljs-attribute">end_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-30 23:59:59"</span></span>,
+      "<span class="hljs-attribute">coupon_type</span>": <span class="hljs-value"><span class="hljs-string">"private"</span></span>,
+      "<span class="hljs-attribute">used_count</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.022</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="coupon-retrieve-a-coupon" class="resource"><h3 class="resource-heading">Retrieve a coupon <a href="#coupon-retrieve-a-coupon" class="permalink">&nbsp;&para;</a></h3><p>Retrieve a coupon.</p>
+                    <div id="coupon-retrieve-a-coupon-get" class="action get"><h4 class="action-heading"><div class="name"></div><a href="#coupon-retrieve-a-coupon-get" class="method get">GET</a><code class="uri">/coupons/:id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/coupons/:id</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>A primary ID of the coupon.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"GET"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/2"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">2</span></span>,
+    "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Test Coupon 01"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is test coupon."</span></span>,
+    "<span class="hljs-attribute">discount_type</span>": <span class="hljs-value"><span class="hljs-string">"percentage"</span></span>,
+    "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+    "<span class="hljs-attribute">image_url</span>": <span class="hljs-value"><span class="hljs-string">"https://s3-ap-northeast-1.amazonaws.com/coupon.stage.image/photos/290/001.jpg"</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">23334</span></span>,
+    "<span class="hljs-attribute">start_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-10 08:00:00"</span></span>,
+    "<span class="hljs-attribute">end_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-30 23:59:59"</span></span>,
+    "<span class="hljs-attribute">coupon_type</span>": <span class="hljs-value"><span class="hljs-string">"public"</span></span>,
+    "<span class="hljs-attribute">used_count</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+    "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.013</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"GET"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupon/298"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The resource that matches the request ID does not found."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404002</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.827</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="coupon-create-a-coupon" class="resource"><h3 class="resource-heading">Create a coupon <a href="#coupon-create-a-coupon" class="permalink">&nbsp;&para;</a></h3><p>Create a coupon.</p>
+                    <div id="coupon-create-a-coupon-post" class="action post"><h4 class="action-heading"><div class="name"></div><a href="#coupon-create-a-coupon-post" class="method post">POST</a><code class="uri">/coupons</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/coupons</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>name</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>coupon one</span></span><p>Coupon name.</p>
+                                </dd><dt>description</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>coupon description</span></span><p>description of coupon.</p>
+                                </dd><dt>discount_type</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>percentage</span></span><p>discount type of coupon. (This value allow only <code>percentage</code> or <code>fix-amount</code>)</p>
+                                </dd><dt>amount</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>100</span></span><p>amount of discount value.</p>
+                                </dd><dt>image_url</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>null</span></span><p>Coupon image s3 storage url link.</p>
+                                </dd><dt>code</dt><dd><code>int</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>8332</span></span><p>Coupon code.</p>
+                                </dd><dt>start_datetime</dt><dd><code>datetime</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2020-10-10 09:00:00</span></span><p>coupon available start datetime.</p>
+                                </dd><dt>end_datetime</dt><dd><code>datetime</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2020-10-30 23:59:59</span></span><p>coupon available end datetime.</p>
+                                </dd><dt>coupon_type</dt><dd><code>string</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>public</span></span><p>types of coupon. (This value allow only <code>public</code> or <code>private</code>) Default is <code>public</code>.</p>
+                                </dd><dt>used_count</dt><dd><code>int</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>Allow coupon use count. (If value is 1, user can use only one time)</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">201</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"POST"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">17</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.06</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>An error has occurred while validation.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"POST"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The request parameters are incorrect, please make sure to follow the documentation about request parameters of the resource."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400002</span></span>,
+    "<span class="hljs-attribute">validation</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"name"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"required"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The name field is required."</span>
+          </span>},
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"max"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The name may not be greater than 128 characters."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"discount_type"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"invalid"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The selected discount type is invalid."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"amount"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The amount must be integer."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"code"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The code must be integer."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"start_datetime"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"invalid"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The start datetime must be datetime format"</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"end_datetime"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"invalid"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The end datetime must be must be datetime format"</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"coupon_type"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"invalid"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The selected coupon type is invalid."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"used_count"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The used count must be integer."</span>
+          </span>}
+        ]
+      </span>}
+    ]
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.884</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="coupon-update-coupon" class="resource"><h3 class="resource-heading">Update coupon <a href="#coupon-update-coupon" class="permalink">&nbsp;&para;</a></h3><p>Update a coupon that correspond to the id.</p>
+                    <div id="coupon-update-coupon-put" class="action put"><h4 class="action-heading"><div class="name"></div><a href="#coupon-update-coupon-put" class="method put">PUT</a><code class="uri">/coupons/:id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/coupons/:id</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>name</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>coupon one</span></span><p>Coupon name.</p>
+                                </dd><dt>description</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>coupon description</span></span><p>description of coupon.</p>
+                                </dd><dt>discount_type</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>percentage</span></span><p>discount type of coupon. (This value allow only <code>percentage</code> or <code>fix-amount</code>).</p>
+                                </dd><dt>amount</dt><dd><code>int</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>100</span></span><p>amount of discount value.</p>
+                                </dd><dt>image_url</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>null</span></span><p>Coupon image s3 storage url link.</p>
+                                </dd><dt>code</dt><dd><code>int</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>8332</span></span><p>Coupon code.</p>
+                                </dd><dt>start_datetime</dt><dd><code>datetime</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2020-10-10 09:00:00</span></span><p>coupon available start datetime.</p>
+                                </dd><dt>end_datetime</dt><dd><code>datetime</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2020-10-30 23:59:59</span></span><p>coupon available end datetime.</p>
+                                </dd><dt>coupon_type</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>public</span></span><p>types of coupon. (This value allow only <code>public</code> or <code>private</code>) Default is <code>public</code>.</p>
+                                </dd><dt>used_count</dt><dd><code>int</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>Allow coupon use count. (If value is 1, user can use only one time)</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"PUT"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/325"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">updated</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.003</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>An error has occurred while validation.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"PUT"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The request parameters are incorrect, please make sure to follow the documentation about request parameters of the resource."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400002</span></span>,
+    "<span class="hljs-attribute">validation</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"name"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"max"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The name may not be greater than 128 characters."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"discount_type"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"invalid"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The selected discount type is invalid."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"amount"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The amount must be integer."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"code"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The code must be integer."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"start_datetime"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"invalid"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The start datetime must be datetime format"</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"end_datetime"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"invalid"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The end datetime must be must be datetime format"</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"coupon_type"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"invalid"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The selected coupon type is invalid."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"used_count"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The used count must be integer."</span>
+          </span>}
+        ]
+      </span>}
+    ]
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.884</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"PUT"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/222222"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The updating resource that corresponds to the ID wasn't found."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404003</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.026</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="coupon-delete-a-coupon" class="resource"><h3 class="resource-heading">Delete a Coupon <a href="#coupon-delete-a-coupon" class="permalink">&nbsp;&para;</a></h3><p>Delete a coupon that corresponds to the ID as last segment of the URL.</p>
+                    <div id="coupon-delete-a-coupon-delete" class="action delete"><h4 class="action-heading"><div class="name"></div><a href="#coupon-delete-a-coupon-delete" class="method delete">DELETE</a><code class="uri">/coupon/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/coupon/<span class="hljs-attribute" title="id">4</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>4</span></span><p>A primary ID of the coupon.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"DELETE"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupon/4"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">deleted</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.017</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Response 404 will be returned, if there are no coupon specified.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"DELETE"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupon/12345"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The deleting resource that corresponds to the ID wasn't found."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404004</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.117</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="shops" class="resource-group"><h2 class="group-heading">Shops <a href="#shops" class="permalink">&para;</a></h2><p>The endpoint control the shop resource.</p>
+                <div id="shops-retrieve-shops" class="resource"><h3 class="resource-heading">Retrieve Shops <a href="#shops-retrieve-shops" class="permalink">&nbsp;&para;</a></h3><p>Retrieve the the list of shops.</p>
+                    <div id="shops-retrieve-shops-get" class="action get"><h4 class="action-heading"><div class="name"></div><a href="#shops-retrieve-shops-get" class="method get">GET</a><code class="uri">/shops</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/shops</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>name</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>shop one</span></span><p>Filter by Shop name.</p>
+                                </dd><dt>limit</dt><dd><code>int</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>30</span></span><p>The default limit value is <code>30</code>.</p>
+                                </dd><dt>offset</dt><dd><code>int</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>0</span></span><p>The default offset value is <code>0</code>.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"GET"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops"</span></span>,
+    "<span class="hljs-attribute">limit</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+    "<span class="hljs-attribute">offset</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">2</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">170</span></span>,
+      "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"SEVEN ELEVEN"</span></span>,
+      "<span class="hljs-attribute">query</span>": <span class="hljs-value"><span class="hljs-string">"shops"</span></span>,
+      "<span class="hljs-attribute">latitude</span>": <span class="hljs-value"><span class="hljs-string">"44.968046"</span></span>,
+      "<span class="hljs-attribute">longitude</span>": <span class="hljs-value"><span class="hljs-string">"-94.420307"</span></span>,
+      "<span class="hljs-attribute">zoom</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span>
+    </span>},
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">171</span></span>,
+      "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"AOEN"</span></span>,
+      "<span class="hljs-attribute">query</span>": <span class="hljs-value"><span class="hljs-string">"shops"</span></span>,
+      "<span class="hljs-attribute">latitude</span>": <span class="hljs-value"><span class="hljs-string">"33.844843"</span></span>,
+      "<span class="hljs-attribute">longitude</span>": <span class="hljs-value"><span class="hljs-string">"-116.54911"</span></span>,
+      "<span class="hljs-attribute">zoom</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span>
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.022</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="shops-retrieve-a-shop" class="resource"><h3 class="resource-heading">Retrieve a Shop <a href="#shops-retrieve-a-shop" class="permalink">&nbsp;&para;</a></h3><p>Retrieve a shop.</p>
+                    <div id="shops-retrieve-a-shop-get" class="action get"><h4 class="action-heading"><div class="name"></div><a href="#shops-retrieve-a-shop-get" class="method get">GET</a><code class="uri">/shop/:id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/shop/:id</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>A primary ID of the shop.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"GET"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops/170"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">170</span></span>,
+    "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"SEVEN ELEVEN"</span></span>,
+    "<span class="hljs-attribute">query</span>": <span class="hljs-value"><span class="hljs-string">"shops"</span></span>,
+    "<span class="hljs-attribute">latitude</span>": <span class="hljs-value"><span class="hljs-string">"44.968046"</span></span>,
+    "<span class="hljs-attribute">longitude</span>": <span class="hljs-value"><span class="hljs-string">"-94.420307"</span></span>,
+    "<span class="hljs-attribute">zoom</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+    "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.013</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"GET"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops/278"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The resource that matches the request ID does not found."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404002</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.827</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="shops-create-a-shop" class="resource"><h3 class="resource-heading">Create a Shop <a href="#shops-create-a-shop" class="permalink">&nbsp;&para;</a></h3><p>Create a Shop.</p>
+                    <div id="shops-create-a-shop-post" class="action post"><h4 class="action-heading"><div class="name"></div><a href="#shops-create-a-shop-post" class="method post">POST</a><code class="uri">/shops</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/shops</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>name</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>AEON</span></span><p>Shop Name.</p>
+                                </dd><dt>query</dt><dd><code>sting</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>shops</span></span><p>Shop Query.</p>
+                                </dd><dt>latitude</dt><dd><code>decimal</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>44.968046</span></span><p>Shop Latitude.</p>
+                                </dd><dt>longitude</dt><dd><code>decimal</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>-94.420307</span></span><p>Shop Longitude.</p>
+                                </dd><dt>zoom</dt><dd><code>sting</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2</span></span><p>Shop Zoom.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">201</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"POST"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">29</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.06</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>An error has occurred while validation.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"POST"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The request parameters are incorrect, please make sure to follow the documentation about request parameters of the resource."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400002</span></span>,
+    "<span class="hljs-attribute">validation</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"name"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"max"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The name may not be greater than 64 characters."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"query"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"max"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The name may not be greater than 64 characters."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"latitude"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The latitude must be integer."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"longitude"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The longitude must be integer."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"zoom"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The zoom must be integer."</span>
+          </span>}
+        ]
+      </span>}
+    ]
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.884</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="shops-update-shop" class="resource"><h3 class="resource-heading">Update Shop <a href="#shops-update-shop" class="permalink">&nbsp;&para;</a></h3><p>Update a Shop that correspond to the id.</p>
+                    <div id="shops-update-shop-put" class="action put"><h4 class="action-heading"><div class="name"></div><a href="#shops-update-shop-put" class="method put">PUT</a><code class="uri">/shops/:id</code></h4><h4>Example URI</h4><div class="definition"><span class="method put">PUT</span>&nbsp;<span class="uri"><span class="hostname"></span>/shops/:id</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>A primary ID of the related-ticket.</p>
+                                </dd><dt>name</dt><dd><code>string</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>AEON</span></span><p>Shop Name.</p>
+                                </dd><dt>query</dt><dd><code>sting</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>shops</span></span><p>Shop Query.</p>
+                                </dd><dt>latitude</dt><dd><code>decimal</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>44.968046</span></span><p>Shop Latitude.</p>
+                                </dd><dt>longitude</dt><dd><code>decimal</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>-94.420307</span></span><p>Shop Longitude.</p>
+                                </dd><dt>zoom</dt><dd><code>sting</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>2</span></span><p>Shop Zoom.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"PUT"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops/121"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">updated</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.003</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>An error has occurred while validation.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"PUT"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops/290"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The request parameters are incorrect, please make sure to follow the documentation about request parameters of the resource."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400002</span></span>,
+    "<span class="hljs-attribute">validation</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"name"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"max"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The name may not be greater than 64 characters."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"query"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"max"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The name may not be greater than 64 characters."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"latitude"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The latitude must be integer."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"longitude"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The longitude must be integer."</span>
+          </span>}
+        ]
+      </span>},
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"zoom"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The zoom must be integer."</span>
+          </span>}
+        ]
+      </span>}
+    ]
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.884</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"PUT"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops/222222"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The updating resource that corresponds to the ID wasn't found."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404003</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.026</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="shops-delete-a-shop" class="resource"><h3 class="resource-heading">Delete a Shop <a href="#shops-delete-a-shop" class="permalink">&nbsp;&para;</a></h3><p>Delete a Shop that corresponds to the ID as last segment of the URL.</p>
+                    <div id="shops-delete-a-shop-delete" class="action delete"><h4 class="action-heading"><div class="name"></div><a href="#shops-delete-a-shop-delete" class="method delete">DELETE</a><code class="uri">/shops/{id}</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/shops/<span class="hljs-attribute" title="id">1</span></span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>id</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>A primary ID of the shop.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"DELETE"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops/4"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">deleted</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.017</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Response 404 will be returned, if there are no shop specified.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"DELETE"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/shops/12345"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The deleting resource that corresponds to the ID wasn't found."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404004</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.117</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section><section id="couponshops" class="resource-group"><h2 class="group-heading">CouponShops <a href="#couponshops" class="permalink">&para;</a></h2><p>The endpoint control the shop resource belongs the coupon specified by couponId.</p>
+                <div id="couponshops-retrieve-couponshops" class="resource"><h3 class="resource-heading">Retrieve CouponShops <a href="#couponshops-retrieve-couponshops" class="permalink">&nbsp;&para;</a></h3><p>Retrieve the the list of couponShops.</p>
+                    <div id="couponshops-retrieve-couponshops-get" class="action get"><h4 class="action-heading"><div class="name"></div><a href="#couponshops-retrieve-couponshops-get" class="method get">GET</a><code class="uri">/coupons/:coupon_id/shops</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/coupons/:coupon_id/shops</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>coupon_id</dt><dd><code>integer</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>290</span></span><p>Filter by Coupon Id.</p>
+                                </dd><dt>limit</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>30</span></span><p>The default limit value is <code>30</code>.</p>
+                                </dd><dt>offset</dt><dd><code>integer</code>&nbsp;<span>(optional)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>0</span></span><p>The default offset value is <code>0</code>.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"GET"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/290/shops"</span></span>,
+    "<span class="hljs-attribute">limit</span>": <span class="hljs-value"><span class="hljs-number">30</span></span>,
+    "<span class="hljs-attribute">offset</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+    "<span class="hljs-attribute">total</span>": <span class="hljs-value"><span class="hljs-number">2</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[
+    {
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">290</span></span>,
+      "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Test Coupon 01"</span></span>,
+      "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is test coupon."</span></span>,
+      "<span class="hljs-attribute">discount_type</span>": <span class="hljs-value"><span class="hljs-string">"percentage"</span></span>,
+      "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+      "<span class="hljs-attribute">image_url</span>": <span class="hljs-value"><span class="hljs-string">"https://s3-ap-northeast-1.amazonaws.com/coupon.stage.image/photos/290/001.jpg"</span></span>,
+      "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">23334</span></span>,
+      "<span class="hljs-attribute">start_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-10 08:00:00"</span></span>,
+      "<span class="hljs-attribute">end_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-30 23:59:59"</span></span>,
+      "<span class="hljs-attribute">coupon_type</span>": <span class="hljs-value"><span class="hljs-string">"public"</span></span>,
+      "<span class="hljs-attribute">used_count</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+      "<span class="hljs-attribute">shops</span>": <span class="hljs-value">[
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">130</span></span>,
+          "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"SEVEN ELEVEN"</span></span>,
+          "<span class="hljs-attribute">query</span>": <span class="hljs-value"><span class="hljs-string">"shops"</span></span>,
+          "<span class="hljs-attribute">latitude</span>": <span class="hljs-value"><span class="hljs-string">"44.968046"</span></span>,
+          "<span class="hljs-attribute">longitude</span>": <span class="hljs-value"><span class="hljs-string">"-94.420307"</span></span>,
+          "<span class="hljs-attribute">zoom</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span>
+        </span>},
+        {
+          "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">131</span></span>,
+          "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+          "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"AOEN"</span></span>,
+          "<span class="hljs-attribute">query</span>": <span class="hljs-value"><span class="hljs-string">"shops"</span></span>,
+          "<span class="hljs-attribute">latitude</span>": <span class="hljs-value"><span class="hljs-string">"33.844843"</span></span>,
+          "<span class="hljs-attribute">longitude</span>": <span class="hljs-value"><span class="hljs-string">"-116.54911"</span></span>,
+          "<span class="hljs-attribute">zoom</span>": <span class="hljs-value"><span class="hljs-number">3</span></span>,
+          "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+          "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span>
+        </span>}
+      ]
+    </span>}
+  ]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.022</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="couponshops-retrieve-couponshops-1" class="resource"><h3 class="resource-heading">Retrieve CouponShops <a href="#couponshops-retrieve-couponshops-1" class="permalink">&nbsp;&para;</a></h3><p>Retrieve a couponShop.</p>
+                    <div id="couponshops-retrieve-couponshops-get-1" class="action get"><h4 class="action-heading"><div class="name"></div><a href="#couponshops-retrieve-couponshops-get-1" class="method get">GET</a><code class="uri">/coupons/:coupon_id/shops/:shop_id</code></h4><h4>Example URI</h4><div class="definition"><span class="method get">GET</span>&nbsp;<span class="uri"><span class="hostname"></span>/coupons/:coupon_id/shops/:shop_id</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>coupon_id</dt><dd><code>integer</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>290</span></span><p>Filter by Coupon Id.</p>
+                                </dd><dt>shop_id</dt><dd><code>integer</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>130</span></span><p>Filter by Shop Id.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"GET"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/290/shops/130"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">290</span></span>,
+    "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"Test Coupon 01"</span></span>,
+    "<span class="hljs-attribute">description</span>": <span class="hljs-value"><span class="hljs-string">"This is test coupon."</span></span>,
+    "<span class="hljs-attribute">discount_type</span>": <span class="hljs-value"><span class="hljs-string">"percentage"</span></span>,
+    "<span class="hljs-attribute">amount</span>": <span class="hljs-value"><span class="hljs-number">10</span></span>,
+    "<span class="hljs-attribute">image_url</span>": <span class="hljs-value"><span class="hljs-string">"https://s3-ap-northeast-1.amazonaws.com/coupon.stage.image/photos/290/001.jpg"</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">23334</span></span>,
+    "<span class="hljs-attribute">start_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-10 08:00:00"</span></span>,
+    "<span class="hljs-attribute">end_datetime</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-30 23:59:59"</span></span>,
+    "<span class="hljs-attribute">coupon_type</span>": <span class="hljs-value"><span class="hljs-string">"public"</span></span>,
+    "<span class="hljs-attribute">used_count</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+    "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+    "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+    "<span class="hljs-attribute">shops</span>": <span class="hljs-value">{
+      "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">130</span></span>,
+      "<span class="hljs-attribute">admin_id</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">name</span>": <span class="hljs-value"><span class="hljs-string">"SEVEN ELEVEN"</span></span>,
+      "<span class="hljs-attribute">query</span>": <span class="hljs-value"><span class="hljs-string">"shops"</span></span>,
+      "<span class="hljs-attribute">latitude</span>": <span class="hljs-value"><span class="hljs-string">"44.968046"</span></span>,
+      "<span class="hljs-attribute">longitude</span>": <span class="hljs-value"><span class="hljs-string">"-94.420307"</span></span>,
+      "<span class="hljs-attribute">zoom</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+      "<span class="hljs-attribute">created_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span></span>,
+      "<span class="hljs-attribute">updated_at</span>": <span class="hljs-value"><span class="hljs-string">"2020-10-01 17:47:00"</span>
+    </span>}
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.022</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="couponshops-create-a-couponshop" class="resource"><h3 class="resource-heading">Create a CouponShop <a href="#couponshops-create-a-couponshop" class="permalink">&nbsp;&para;</a></h3><p>Create a Coupon shop.</p>
+                    <div id="couponshops-create-a-couponshop-post" class="action post"><h4 class="action-heading"><div class="name"></div><a href="#couponshops-create-a-couponshop-post" class="method post">POST</a><code class="uri">/coupons/:coupon_id/shops</code></h4><h4>Example URI</h4><div class="definition"><span class="method post">POST</span>&nbsp;<span class="uri"><span class="hostname"></span>/coupons/:coupon_id/shops</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>coupon_id</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>290</span></span><p>Coupon Id.</p>
+                                </dd><dt>shop_id</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>1</span></span><p>Shop Id.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>201</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">201</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"POST"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/290/shops"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">id</span>": <span class="hljs-value"><span class="hljs-number">29</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.06</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>400</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>An error has occurred while validation.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"POST"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/290/shops"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The request parameters are incorrect, please make sure to follow the documentation about request parameters of the resource."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">400002</span></span>,
+    "<span class="hljs-attribute">validation</span>": <span class="hljs-value">[
+      {
+        "<span class="hljs-attribute">attribute</span>": <span class="hljs-value"><span class="hljs-string">"shop_id"</span></span>,
+        "<span class="hljs-attribute">errors</span>": <span class="hljs-value">[
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"required"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The shop id field is required."</span>
+          </span>},
+          {
+            "<span class="hljs-attribute">key</span>": <span class="hljs-value"><span class="hljs-string">"integer"</span></span>,
+            "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The shop id must be integer."</span>
+          </span>}
+        ]
+      </span>}
+    ]
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.884</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>409</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>An error has occurred while The inserting resource was already registered.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">409</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"POST"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/1/shops"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The inserting resource was already registered."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">409001</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.313</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>An error has occurred while The inserting resource was already registered.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"POST"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/11234/shops"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The parent resource of corresponding to the given ID was not found."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404005</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.145</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div><div id="couponshops-delete-a-couponshop" class="resource"><h3 class="resource-heading">Delete a CouponShop <a href="#couponshops-delete-a-couponshop" class="permalink">&nbsp;&para;</a></h3><p>Delete a CouponShop that corresponds to the ID as last segment of the URL.</p>
+                    <div id="couponshops-delete-a-couponshop-delete" class="action delete"><h4 class="action-heading"><div class="name"></div><a href="#couponshops-delete-a-couponshop-delete" class="method delete">DELETE</a><code class="uri">/coupons/:coupon_id/shops/:id</code></h4><h4>Example URI</h4><div class="definition"><span class="method delete">DELETE</span>&nbsp;<span class="uri"><span class="hostname"></span>/coupons/:coupon_id/shops/:id</span></div><div class="title"><strong>URI Parameters</strong><div class="collapse-button show"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><dl class="inner"><dt>coupon_id</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>4</span></span><p>A primary ID of the coupon.</p>
+                                </dd><dt>id</dt><dd><code>int</code>&nbsp;<span class="required">(required)</span>&nbsp;<span class="text-muted example"><strong>Example:&nbsp;</strong><span>5</span></span><p>A primary ID of the couponShop.</p>
+                                </dd></dl></div><div class="title"><strong>Response&nbsp;&nbsp;<code>200</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">1</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">200</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"DELETE"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupon/4/shops/5"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">deleted</span>": <span class="hljs-value"><span class="hljs-number">1</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.017</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div><div class="title"><strong>Response&nbsp;&nbsp;<code>404</code></strong><div class="collapse-button"><span class="close">Hide</span><span class="open">Show</span></div></div><div class="collapse-content"><div class="inner"><div class="description"><p>Response 404 will be returned, if there are no couponShop specified.</p>
+                                </div><h5>Headers</h5><pre><code><span class="hljs-attribute">Content-Type</span>: <span class="hljs-string">application/json; charset=utf-8</span></code></pre><div style="height: 1px;"></div><h5>Body</h5><pre><code>{
+  "<span class="hljs-attribute">success</span>": <span class="hljs-value"><span class="hljs-number">0</span></span>,
+  "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404</span></span>,
+  "<span class="hljs-attribute">meta</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">method</span>": <span class="hljs-value"><span class="hljs-string">"DELETE"</span></span>,
+    "<span class="hljs-attribute">endpoint</span>": <span class="hljs-value"><span class="hljs-string">"1/coupons/4/shops/12345"</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">data</span>": <span class="hljs-value">[]</span>,
+  "<span class="hljs-attribute">errors</span>": <span class="hljs-value">{
+    "<span class="hljs-attribute">message</span>": <span class="hljs-value"><span class="hljs-string">"The deleting resource that corresponds to the ID wasn't found."</span></span>,
+    "<span class="hljs-attribute">code</span>": <span class="hljs-value"><span class="hljs-number">404004</span>
+  </span>}</span>,
+  "<span class="hljs-attribute">duration</span>": <span class="hljs-value"><span class="hljs-number">0.117</span>
+</span>}</code></pre><div style="height: 1px;"></div></div></div></div></div></section></div></div></div><p style="text-align: center;" class="text-muted">Generated by&nbsp;<a href="https://github.com/danielgtaylor/aglio" class="aglio">aglio</a>&nbsp;on 23 Dec 2020</p><script>/* eslint-env browser */
+    /* eslint quotes: [2, "single"] */
+    'use strict';
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    /*
+      Determine if a string ends with another string.
+    */
+    function endsWith(str, suffix) {
+        return str.indexOf(suffix, str.length - suffix.length) !== -1;
+    }
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
+    /*
+      Get a list of direct child elements by class name.
+    */
+    function childrenByClass(element, name) {
+        var filtered = [];
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
+        for (var i = 0; i < element.children.length; i++) {
+            var child = element.children[i];
+            var classNames = child.className.split(' ');
+            if (classNames.indexOf(name) !== -1) {
+                filtered.push(child);
             }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
+        }
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
+        return filtered;
+    }
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
+    /*
+      Get an array [width, height] of the window.
+    */
+    function getWindowDimensions() {
+        var w = window,
+            d = document,
+            e = d.documentElement,
+            g = d.body,
+            x = w.innerWidth || e.clientWidth || g.clientWidth,
+            y = w.innerHeight || e.clientHeight || g.clientHeight;
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
+        return [x, y];
+    }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
-                        </div>
+    /*
+      Collapse or show a request/response example.
+    */
+    function toggleCollapseButton(event) {
+        var button = event.target.parentNode;
+        var content = button.parentNode.nextSibling;
+        var inner = content.children[0];
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
+        if (button.className.indexOf('collapse-button') === -1) {
+            // Clicked without hitting the right element?
+            return;
+        }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
+        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            // Currently showing, so let's hide it
+            button.className = 'collapse-button';
+            content.style.maxHeight = '0px';
+        } else {
+            // Currently hidden, so let's show it
+            button.className = 'collapse-button show';
+            content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+        }
+    }
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
+    function toggleTabButton(event) {
+        var i, index;
+        var button = event.target;
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
+        // Get index of the current button.
+        var buttons = childrenByClass(button.parentNode, 'tab-button');
+        for (i = 0; i < buttons.length; i++) {
+            if (buttons[i] === button) {
+                index = i;
+                button.className = 'tab-button active';
+            } else {
+                buttons[i].className = 'tab-button';
+            }
+        }
 
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
+        // Hide other tabs and show this one.
+        var tabs = childrenByClass(button.parentNode.parentNode, 'tab');
+        for (i = 0; i < tabs.length; i++) {
+            if (i === index) {
+                tabs[i].style.display = 'block';
+            } else {
+                tabs[i].style.display = 'none';
+            }
+        }
+    }
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    /*
+      Collapse or show a navigation menu. It will not be hidden unless it
+      is currently selected or `force` has been passed.
+    */
+    function toggleCollapseNav(event, force) {
+        var heading = event.target.parentNode;
+        var content = heading.nextSibling;
+        var inner = content.children[0];
 
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
+        if (heading.className.indexOf('heading') === -1) {
+            // Clicked without hitting the right element?
+            return;
+        }
 
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
+        if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+            // Currently showing, so let's hide it, but only if this nav item
+            // is already selected. This prevents newly selected items from
+            // collapsing in an annoying fashion.
+            if (force || window.location.hash && endsWith(event.target.href, window.location.hash)) {
+                content.style.maxHeight = '0px';
+            }
+        } else {
+            // Currently hidden, so let's show it
+            content.style.maxHeight = inner.offsetHeight + 12 + 'px';
+        }
+    }
 
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
+    /*
+      Refresh the page after a live update from the server. This only
+      works in live preview mode (using the `--server` parameter).
+    */
+    function refresh(body) {
+        document.querySelector('body').className = 'preload';
+        document.body.innerHTML = body;
 
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
+        // Re-initialize the page
+        init();
+        autoCollapse();
 
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
-                    </div>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+        document.querySelector('body').className = '';
+    }
+
+    /*
+      Determine which navigation items should be auto-collapsed to show as many
+      as possible on the screen, based on the current window height. This also
+      collapses them.
+    */
+    function autoCollapse() {
+        var windowHeight = getWindowDimensions()[1];
+        var itemsHeight = 64; /* Account for some padding */
+        var itemsArray = Array.prototype.slice.call(
+            document.querySelectorAll('nav .resource-group .heading'));
+
+        // Get the total height of the navigation items
+        itemsArray.forEach(function (item) {
+            itemsHeight += item.parentNode.offsetHeight;
+        });
+
+        // Should we auto-collapse any nav items? Try to find the smallest item
+        // that can be collapsed to show all items on the screen. If not possible,
+        // then collapse the largest item and do it again. First, sort the items
+        // by height from smallest to largest.
+        var sortedItems = itemsArray.sort(function (a, b) {
+            return a.parentNode.offsetHeight - b.parentNode.offsetHeight;
+        });
+
+        while (sortedItems.length && itemsHeight > windowHeight) {
+            for (var i = 0; i < sortedItems.length; i++) {
+                // Will collapsing this item help?
+                var itemHeight = sortedItems[i].nextSibling.offsetHeight;
+                if ((itemsHeight - itemHeight <= windowHeight) || i === sortedItems.length - 1) {
+                    // It will, so let's collapse it, remove its content height from
+                    // our total and then remove it from our list of candidates
+                    // that can be collapsed.
+                    itemsHeight -= itemHeight;
+                    toggleCollapseNav({target: sortedItems[i].children[0]}, true);
+                    sortedItems.splice(i, 1);
+                    break;
+                }
+            }
+        }
+    }
+
+    /*
+      Initialize the interactive functionality of the page.
+    */
+    function init() {
+        var i, j;
+
+        // Make collapse buttons clickable
+        var buttons = document.querySelectorAll('.collapse-button');
+        for (i = 0; i < buttons.length; i++) {
+            buttons[i].onclick = toggleCollapseButton;
+
+            // Show by default? Then toggle now.
+            if (buttons[i].className.indexOf('show') !== -1) {
+                toggleCollapseButton({target: buttons[i].children[0]});
+            }
+        }
+
+        var responseCodes = document.querySelectorAll('.example-names');
+        for (i = 0; i < responseCodes.length; i++) {
+            var tabButtons = childrenByClass(responseCodes[i], 'tab-button');
+            for (j = 0; j < tabButtons.length; j++) {
+                tabButtons[j].onclick = toggleTabButton;
+
+                // Show by default?
+                if (j === 0) {
+                    toggleTabButton({target: tabButtons[j]});
+                }
+            }
+        }
+
+        // Make nav items clickable to collapse/expand their content.
+        var navItems = document.querySelectorAll('nav .resource-group .heading');
+        for (i = 0; i < navItems.length; i++) {
+            navItems[i].onclick = toggleCollapseNav;
+
+            // Show all by default
+            toggleCollapseNav({target: navItems[i].children[0]});
+        }
+    }
+
+    // Initial call to set up buttons
+    init();
+
+    window.onload = function () {
+        autoCollapse();
+        // Remove the `preload` class to enable animations
+        document.querySelector('body').className = '';
+    };
+</script></body></html>
