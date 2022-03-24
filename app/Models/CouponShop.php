@@ -12,4 +12,14 @@ class CouponShop extends Model
         'coupon_id',
         'shop_id'
     ];
+
+    public function coupons()
+    {
+        return $this->belongsTo(Coupon::class,'coupon_id','id');
+    }
+
+    public function shops()
+    {
+        return $this->belongsTo(Shop::class,'shop_id','id');
+    }
 }
